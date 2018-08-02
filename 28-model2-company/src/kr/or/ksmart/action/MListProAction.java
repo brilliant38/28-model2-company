@@ -14,24 +14,25 @@ public class MListProAction implements MActionInterFace {
 	
 	@Override
 	public MActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("05_02_¸®½ºÆ® execute_MListProAction.java_ÀÔ·ÂÃ³¸®");
-		//1´Ü°è : ÀÔ·Â µ¥ÀÌÅÍ°¡ ÀÖÀ¸¸é, ¹Ş¾Æ¼­ È®ÀÎÇÑ´Ù.(ÇöÀç¾ø´Ù.)
-		//2´Ü°è : DTO¶Ç´Â VO¿¡ °ªÀ» ¼¼ÆÃÇÑ´Ù. (ÇÊ¿ä½Ã¿¡¸¸)
-		//3´Ü°è : DAO °´Ã¼³»ÀÇ ¸®½ºÆ® ¸Ş¼­µå È£Ãâ
+		System.out.println("05_02_ï¿½ï¿½ï¿½ï¿½Æ® execute_MListProAction.java_ï¿½Ô·ï¿½Ã³ï¿½ï¿½");
 		
-		//4´Ü°è : ¸Ş¼­µå È£Ãâ ÈÄ ¸®ÅÏ °ªÀ» ¹Ş´Â´Ù.
 		Mdao dao = new Mdao();
 		ArrayList<Member> getalm = dao.mAllSelect();
 		
-		//5´Ü°è : request °´Ã¼ ³»¿¡ ¸®ÅÏ °ª(ArrayList °´Ã¼ ÁÖ¼Ò°ª) À» ¼ÂÆÃ
 		request.setAttribute("getalm", getalm);
 		
-		//6´Ü°è : MActionForwardÅëÇØ »ı¼ºµÈ °´Ã¼³» Æ÷¿öµå ¼³Á¤ ¹× °æ·Î ¼³Á¤
 		MActionForward mf = new MActionForward();
 		mf.setRedirect(false);
 		mf.setPath("/mlist/m_list.jsp");
 		
-		//7´Ü°è : MActionForwardÅëÇØ »ı¼ºµÈ °´Ã¼ ÁÖ¼Ò°ª ¸®ÅÏ
 		return mf;
 	}
 }
+
+//1ë‹¨ê³„ : ì…ë ¥ ë°ì´í„°ê°€ ìˆìœ¼ë©´, ë°›ì•„ì„œ í™•ì¸í•œë‹¤.(í˜„ì¬ì—†ë‹¤.)
+//2ë‹¨ê³„ : DTOë˜ëŠ” VOì— ê°’ì„ ì„¸íŒ…í•œë‹¤. (í•„ìš”ì‹œì—ë§Œ)
+//3ë‹¨ê³„ : DAO ê°ì²´ë‚´ì˜ ë¦¬ìŠ¤íŠ¸ ë©”ì„œë“œ í˜¸ì¶œ
+//4ë‹¨ê³„ : ë©”ì„œë“œ í˜¸ì¶œ í›„ ë¦¬í„´ ê°’ì„ ë°›ëŠ”ë‹¤.
+//5ë‹¨ê³„ : request ê°ì²´ ë‚´ì— ë¦¬í„´ ê°’(ArrayList ê°ì²´ ì£¼ì†Œê°’) ì„ ì…‹íŒ…
+//6ë‹¨ê³„ : MActionForwardí†µí•´ ìƒì„±ëœ ê°ì²´ë‚´ í¬ì›Œë“œ ì„¤ì • ë° ê²½ë¡œ ì„¤ì •
+//7ë‹¨ê³„ : MActionForwardí†µí•´ ìƒì„±ëœ ê°ì²´ ì£¼ì†Œê°’ ë¦¬í„´

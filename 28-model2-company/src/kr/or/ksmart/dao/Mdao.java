@@ -19,7 +19,7 @@ public class Mdao {
 	ResultSet rs = null;
 	ArrayList<Member> alm = null; 
 
-	// default »ý¼ºÀÚ ¸Þ¼­µå ¼±¾ð
+	// default ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public Mdao() {
 		try {
 			Context init = new InitialContext();
@@ -27,12 +27,12 @@ public class Mdao {
 			ds = (DataSource) init.lookup("java:comp/env/jdbc/OracleDB");
 
 		} catch (Exception ex) {
-			System.out.println("DB ¿¬°á ½ÇÆÐ : " + ex);
+			System.out.println("DB ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : " + ex);
 			return;
 		}
 	}
 	
-	//08 ·Î±×ÀÎ Ã³¸® ÈÄ ¼¼¼Ç ÀúÀå Á¤º¸
+	//08 ï¿½Î±ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
 	public Member mLoginSession(String oraId) throws ClassNotFoundException, SQLException {
 		System.out.println("08 mLoginSession Mdao.java");
@@ -52,7 +52,7 @@ public class Mdao {
 		return re;
 	}
 	
-	//07 ·Î±×ÀÎ È®ÀÎ
+	//07 ï¿½Î±ï¿½ï¿½ï¿½ È®ï¿½ï¿½
 		public String mLoginCheck(String oraId, String oraPw) throws ClassNotFoundException, SQLException {
 			System.out.println("07 mLoginCheck Mdao.java");
 			String re = null;
@@ -64,14 +64,14 @@ public class Mdao {
 			
 			if(rs.next()) {
 				if(oraPw.equals(rs.getString("ORA_PW"))) {
-					re = "01·Î±×ÀÎ¼º°ø";
+					re = "01ï¿½Î±ï¿½ï¿½Î¼ï¿½ï¿½ï¿½";
 					System.out.println(re);
 				}else {
-					re = "03ºñ¹øºÒÀÏÄ¡";
+					re = "03ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡";
 					System.out.println(re);
 				}
 			}else {
-				re = "02¾ÆÀÌµðºÒÀÏÄ¡";
+				re = "02ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ï¿½Ä¡";
 				System.out.println(re);
 			}
 			pstmt.close();
@@ -80,7 +80,7 @@ public class Mdao {
 			return re;
 		}
 	
-	//06 °Ë»ö ¸Þ¼­µå ¼±¾ð
+	//06 ï¿½Ë»ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		public ArrayList<Member> mSearch(String sk,String sv) throws ClassNotFoundException, SQLException{
 			System.out.println("06 mSearch Mdao.java");
 			System.out.println(sk + "<- sk mSearch Mdao.java");
@@ -90,13 +90,13 @@ public class Mdao {
 			System.out.println(con + "<-- conn");
 
 			if(sk == null & sv == null){
-				System.out.println("01Á¶°Ç_sk null sv null");
+				System.out.println("01ï¿½ï¿½ï¿½ï¿½_sk null sv null");
 				pstmt = con.prepareStatement("SELECT * FROM oracle_member");
 			}else if(sk != null & sv.equals("")){
-				System.out.println("02Á¶°Ç_sk ÀÖ°í sv °ø¹é");
+				System.out.println("02ï¿½ï¿½ï¿½ï¿½_sk ï¿½Ö°ï¿½ sv ï¿½ï¿½ï¿½ï¿½");
 				pstmt = con.prepareStatement("SELECT * FROM oracle_member");
 			}else if(sk != null & sv != null){
-				System.out.println("03Á¶°Ç_µÑ´Ù °ªÀÌ ÀÖ´Ù");
+				System.out.println("03ï¿½ï¿½ï¿½ï¿½_ï¿½Ñ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½");
 				pstmt = con.prepareStatement("SELECT * FROM oracle_member WHERE " + sk +"=?");
 				pstmt.setString(1, sv);
 			}
@@ -125,7 +125,7 @@ public class Mdao {
 			return alm;
 		}
 	
-	//03 »èÁ¦(Å»Åð)Ã³¸® ¸Þ¼­µå¼±¾ð
+	//03 ï¿½ï¿½ï¿½ï¿½(Å»ï¿½ï¿½)Ã³ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½å¼±ï¿½ï¿½
 		public void mDelete(String mid) throws ClassNotFoundException, SQLException {
 			System.out.println("03 mDelete Mdao.java");
 			con = ds.getConnection();
@@ -137,7 +137,7 @@ public class Mdao {
 			con.close();
 		}
 	
-	//02 ¼öÁ¤Ã³¸® ¸Þ¼­µå ¼±¾ð
+	//02 ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		public void mUpdate(Member member) throws ClassNotFoundException, SQLException {
 			System.out.println("02 mUpdate Mdao.java");
 			con = ds.getConnection();
@@ -155,10 +155,10 @@ public class Mdao {
 
 		}
 	
-	//04 ÇÑ¸íÀÇ È¸¿ø Á¶È¸ ¸Þ¼­µå ¼±¾ð(¼öÁ¤È­¸éÀ§ÇÔ)
+	//04 ï¿½Ñ¸ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½È¸ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 		public Member mSelectforUpdate(String sendId) throws ClassNotFoundException, SQLException {
 			System.out.println("04 mSelectforUpdate Mdao.java");
-			System.out.println("¾ÆÀÌµð°ª:" + sendId);
+			System.out.println("ï¿½ï¿½ï¿½Ìµï¿½:" + sendId);
 			Member m = null;
 			con = ds.getConnection();
 			pstmt = con.prepareStatement("SELECT * FROM ORACLE_MEMBER WHERE ORA_ID = ?");
@@ -177,7 +177,7 @@ public class Mdao {
 			return m;
 		}
 	
-	//05 ÀüÃ¼È¸¿ø Á¶È¸ ¸Þ¼­µå ¼±¾ð
+	//05 ï¿½ï¿½Ã¼È¸ï¿½ï¿½ ï¿½ï¿½È¸ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		public ArrayList<Member> mAllSelect() throws ClassNotFoundException, SQLException{
 			System.out.println("05 mAllSelect Mdao.java");
 			con = ds.getConnection();
@@ -201,9 +201,9 @@ public class Mdao {
 			return alm;
 		}
 		
-	//01ÀÔ·ÂÃ³¸® ¸Þ¼­µå ¼±¾ð
+	//01ï¿½Ô·ï¿½Ã³ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		public void mInsert(Member member) throws SQLException{
-			//3´Ü°è Äõ¸®½ÇÇàÁØºñ ºÎÅÍ ½ÃÀÛ
+			//3ï¿½Ü°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Øºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			System.out.println("01_01 mInsert Mdao.java");
 			con = ds.getConnection();
 			pstmt = con.prepareStatement(

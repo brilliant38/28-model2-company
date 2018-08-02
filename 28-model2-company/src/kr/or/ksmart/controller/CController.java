@@ -21,7 +21,7 @@ public class CController extends HttpServlet {
         
     }
     protected void doPro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	System.out.println("02 doPro È£Ãâ ¿Ï·á");
+    	System.out.println("02 doPro È£ï¿½ï¿½ ï¿½Ï·ï¿½");
     	request.setCharacterEncoding("euc-kr");
 		String RequestURI=request.getRequestURI();
 		String contextPath=request.getContextPath();
@@ -39,6 +39,8 @@ public class CController extends HttpServlet {
 			forward = new CActionFoward();
 			forward.setRedirect(false);
 			forward.setPath("c_main.jsp");
+		} else if (command.equals("/c_main.engineer")) {
+			
 		}
 		
 		if(forward != null){
@@ -48,7 +50,7 @@ public class CController extends HttpServlet {
 				
 				RequestDispatcher dispatcher=
 					request.getRequestDispatcher(forward.getPath());
-				System.out.println(forward.getPath() + "<--- forward.getPath()[jsp ÀÌµ¿°æ·Î]  BoardFrontController.java");
+				System.out.println(forward.getPath() + "<--- forward.getPath()[jsp ï¿½Ìµï¿½ï¿½ï¿½ï¿½]  BoardFrontController.java");
 				System.out.println();
 				dispatcher.forward(request, response);
 			}
@@ -56,12 +58,12 @@ public class CController extends HttpServlet {
     }
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("01 doGet È£Ãâ ¿Ï·á");
+		System.out.println("01 doGet È£ï¿½ï¿½ ï¿½Ï·ï¿½");
 		doPro(request,response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("01 doPost È£Ãâ ¿Ï·á");
+		System.out.println("01 doPost È£ï¿½ï¿½ ï¿½Ï·ï¿½");
 		doPro(request,response);
 	}
 
