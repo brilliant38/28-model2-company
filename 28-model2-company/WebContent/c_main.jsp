@@ -28,7 +28,7 @@
 			String S_NAME = (String)session.getAttribute("S_NAME");
 			if(S_NAME == null) {
 		%>
-				<form action="<%= request.getContextPath() %>/Clogin/C_login_pro.engineer" method="post">
+				<form action="<%= request.getContextPath() %>/Plogin/p_login_pro.engineer" method="post">
 					아이디: <input type="text" name="id">
 					비  번: <input type="password" name="pw">
 					<input type="submit" value="로그인버튼">
